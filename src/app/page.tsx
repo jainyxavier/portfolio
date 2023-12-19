@@ -7,10 +7,6 @@ export default function Home() {
   return (
     <main className={roboto.className}>
       <Header />
-
-      <h1 className="text-[22px] font-bold">
-        Hello world!
-      </h1>
     </main>
   )
 }
