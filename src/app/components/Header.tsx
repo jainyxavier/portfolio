@@ -32,7 +32,7 @@ export default function Header() {
                 <div>
                     <Image
                     className="rounded-[20px] shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80"
-                        src="/logo.png"
+                        src="/img/logo.png"
                         width={40}
                         height={40}
                         alt="Logo"
