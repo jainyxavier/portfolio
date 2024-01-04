@@ -27,7 +27,7 @@ export default function Header() {
     ]
 
     return (
-        <nav className="w-full p-[20px] relative">
+        <header className="w-full py-[20px] relative">
             <div className="w-[calc(100%-40px)] max-w-[1200px] flex justify-between items-center mx-auto">
                 <div>
                     <Image
@@ -40,15 +40,17 @@ export default function Header() {
                 </div>
 
                 {/* desktop */}
-                <div className="w-full max-w-[400px] flex max-[768px]:hidden">
+                <nav className="w-full max-w-[400px] flex max-[768px]:hidden">
                     <ul className="w-full flex justify-between gap-4">
                         {menuItems.map((item, index) => {
                             return (
-                                <li key={index} className="text-white text-base font-semibold px-[15px] py-[5px] cursor-pointer hover:bg-white hover:text-pink-500 hover:rounded-lg hover:shadow-lg hover:shadow-gray-500/80">{item.name}</li>
+                                <li key={index} className="text-white text-base font-semibold px-[15px] py-[5px] cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">
+                                    {item.name}
+                                </li>
                             )
                         })}
                     </ul>
-                </div>
+                </nav>
 
                 {/* mobile */}
                 {!toggleMenu ? (
@@ -65,17 +67,18 @@ export default function Header() {
                 )}
 
                 {toggleMenu && (
-                    <div className="w-full flex absolute top-0 left-0 pt-[80px] bg-slate-900">
-                        <ul className="w-full flex justify-between gap-[15px] flex-col items-center">
+                    <div className="w-full flex absolute top-0 left-0 pt-[80px]">
+                        <div className="absolute h-[100vh] w-full bg-slate-900 z-10"></div>
+                        <ul className="w-full flex justify-between gap-[15px] flex-col items-center z-20">
                             {menuItems.map((item, index) => {
                                 return (
-                                    <li key={index} className="text-white text-base font-semibold py-1.5 px-4 cursor-pointer hover:bg-white hover:text-pink-500 hover:rounded-lg hover:shadow-lg hover:shadow-gray-500/80">{item.name}</li>
+                                    <li key={index} className="text-white text-base font-semibold py-1.5 px-4 cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">{item.name}</li>
                                 )
                             })}
                         </ul>
                     </div>
                 )}
             </div>
-        </nav>
+        </header>
     )
 }
