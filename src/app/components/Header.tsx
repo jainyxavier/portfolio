@@ -21,13 +21,13 @@ export default function Header() {
             to: "#"
         },
         {
-            name: "Contact",
+            name: "Projects",
             to: "#"
         }
     ]
 
     return (
-        <header className="w-full py-[20px] relative">
+        <header className="w-full py-[20px] fixed backdrop-blur-[5px] border-b-[1px] border-b-[#80808052]">
             <div className="w-[calc(100%-40px)] max-w-[1200px] flex justify-between items-center mx-auto">
                 <div>
                     <Image
