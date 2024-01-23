@@ -7,6 +7,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiTailwindcss } from "react-icons/si";
+import ListItemIcon from './components/ListItemIcon';
+import InfoItem from './components/InfoItem';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 
@@ -17,7 +19,7 @@ export default function Home() {
 
       {/* home */}
       <section className='w-full pt-[120px] pb-[120px]'>
-        <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto flex justify-between items-center'>
+        <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto flex justify-between items-center gap-[20px] max-[768px]:flex-col'>
           <div className='w-full max-w-[600px]'>
             <p className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[18px]'>Hello There !</p>
 
@@ -30,23 +32,9 @@ export default function Home() {
 
             <div className='w-full max-w-[350px] flex justify-between gap-[40px]'>
               <ul className='w-full flex justify-between items-center gap-[10px]'>
-                <li className='hover:scale-125 transition-all flex items-center justify-center'>
-                  <a className='p-[10px] rounded-full hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 bg-white/10 hover:bg-white/20' href="https://www.linkedin.com/in/jainy-xavier-0288a3215/" target='_blank'>
-                    <FaGithub fontSize={'30px'} color="#f472b6" />
-                  </a>
-                </li>
-
-                <li className='hover:scale-125 hover:transition-all flex items-center justify-center'>
-                  <a className='p-[10px] rounded-full hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 bg-white/10 hover:bg-white/20' href="https://github.com/jainyxavier" target='_blank'>
-                    <FaLinkedin fontSize={'30px'} color="#f472b6" />
-                  </a>
-                </li>
-
-                <li className='hover:scale-125 hover:transition-all flex items-center justify-center'>
-                  <a className='p-[10px] rounded-full hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 bg-white/10 hover:bg-white/20' href="https://www.instagram.com/jainy.xavier/" target='_blank'>
-                    <FaInstagramSquare fontSize={'30px'} color="#f472b6" />
-                  </a>
-                </li>
+                <ListItemIcon link='https://www.linkedin.com/in/jainy-xavier/' Icon={FaGithub} />
+                <ListItemIcon link='https://github.com/jainyxavier' Icon={FaLinkedin} />
+                <ListItemIcon link='https://www.instagram.com/jainy.xavier/' Icon={FaInstagramSquare} />
               </ul>
 
               <Image
@@ -73,7 +61,7 @@ export default function Home() {
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto'>
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>About</h2>
 
-          <div className='flex justify-between items-center gap-[40px]'>
+          <div className='flex justify-between items-center gap-[40px] max-[768px]:flex-col-reverse'>
             <Image
               className='w-full max-w-[350px]'
               src="/img/about.png"
@@ -89,23 +77,10 @@ export default function Home() {
 
               <div className='w-[400px] h-[2px] bg-[#99A2A5] my-[25px]'></div>
 
-              <div className='flex gap-[15px]'>
-                <FaLocationDot fontSize={'20px'} color="#f472b6" />
-                <a href="https://petrolandiaparallax.netlify.app/" className='text-[16px] text-[#99A2A5] hover:text-white transition-all' target='_blank'>
-                  Petrolândia-PE
-                </a>
-              </div>
-
-              <div className='flex gap-[15px] my-[15px]'>
-                <FaPhoneAlt fontSize={'20px'} color="#f472b6" />
-                <a href="https://wa.me/5587999251839?text=Olá! Tudo bem?" className='text-[16px] text-[#99A2A5] hover:text-white transition-all' target='_blank'>
-                  +55 87 9 9925-1839
-                </a>
-              </div>
-
-              <div className='flex gap-[15px]'>
-                <MdEmail fontSize={'20px'} color="#f472b6" />
-                <a href="mailto:xavierjainy15@gmail.com" className='text-[16px] text-[#99A2A5] hover:text-white transition-all'>xavierjainy15@gmail.com</a>
+              <div className='flex flex-col gap-[10px]'>
+                <InfoItem Icon={FaLocationDot} link="https://petrolandiaparallax.netlify.app/" text='Petrolândia-PE' />
+                <InfoItem Icon={FaPhoneAlt} link="https://wa.me/5587999251839?text=Olá! Tudo bem?" text='+55 87 9 9925-1839' />
+                <InfoItem Icon={MdEmail} link="mailto:xavierjainy15@gmail.com" text='xavierjainy15@gmail.com' />
               </div>
 
               <div className='flex gap-[40px] mt-[25px]'>
@@ -131,35 +106,15 @@ export default function Home() {
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto'>
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>Skills</h2>
 
-          <div className='w-full flex items-center justify-between gap-[20px]'>
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <FaHtml5 fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <FaCss3Alt fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <IoLogoJavascript fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <FaSass fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <SiTailwindcss fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <FaReact fontSize={'50px'} color="#f472b6" />
-            </div>
-
-            <div className='p-[20px] rounded-full bg-white/10 hover:bg-white/20 hover:scale-110 hover:shadow-lg shadow-gray-500/40 hover:shadow-gray-500/80 transition-all flex items-center justify-center'>
-              <FaWordpress fontSize={'50px'} color="#f472b6" />
-            </div>
-          </div>
+          <ul className='w-full flex items-center justify-between gap-[20px]'>
+            <ListItemIcon Icon={FaHtml5} size='50px' />
+            <ListItemIcon Icon={FaCss3Alt} size='50px' />
+            <ListItemIcon Icon={IoLogoJavascript} size='50px' />
+            <ListItemIcon Icon={FaSass} size='50px' />
+            <ListItemIcon Icon={SiTailwindcss} size='50px' />
+            <ListItemIcon Icon={FaReact} size='50px' />
+            <ListItemIcon Icon={FaWordpress} size='50px' />
+          </ul>
         </div>
       </section>
 

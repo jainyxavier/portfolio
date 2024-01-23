@@ -67,7 +67,7 @@ export default function Header() {
                 )}
 
                 {toggleMenu && (
-                    <div className="w-full flex absolute top-0 left-0 pt-[80px]">
+                    <div className="w-full flex absolute top-0 left-0 pt-[105px]">
                         <div className="absolute h-[100vh] w-full bg-slate-900 z-10"></div>
                         <ul className="w-full flex justify-between gap-[15px] flex-col items-center z-20">
                             {menuItems.map((item, index) => {
