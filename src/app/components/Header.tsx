@@ -20,10 +20,10 @@ export default function Header() {
             name: "Skills",
             to: "#"
         },
-        {
-            name: "Projects",
-            to: "#"
-        }
+        // {
+        //     name: "Projects",
+        //     to: "#"
+        // }
     ]
 
     return (
