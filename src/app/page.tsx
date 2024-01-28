@@ -1,3 +1,5 @@
+"use client"
+
 import { Roboto } from 'next/font/google'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -9,22 +11,35 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { SiTailwindcss } from "react-icons/si";
 import ListItemIcon from './components/ListItemIcon';
 import InfoItem from './components/InfoItem';
+import { RefObject, useEffect, useRef } from 'react';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 
 export default function Home() {
+
+  const sectionHome: RefObject<HTMLElement> = useRef(null);
+  const sectionAbout: RefObject<HTMLElement> = useRef(null);
+  const sectionSkills: RefObject<HTMLElement> = useRef(null);
+
+  function handleScrollTo(referenceElement: RefObject<HTMLElement>) {
+    console.log(referenceElement)
+    referenceElement.current?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <main className={roboto.className}>
-      <Header />
+      <Header handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} />
 
       {/* home */}
-      <section className='w-full pt-[120px] pb-[120px]'>
+      <section className='w-full pt-[120px] pb-[120px]' ref={sectionHome}>
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto flex justify-between items-center gap-[20px] max-[768px]:flex-col max-[768px]:items-start'>
           <div className='w-full max-w-[600px]'>
-            <p className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[18px]'>Hello There !</p>
+            <p className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[18px]'>Olá !</p>
 
             <h1 className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[40px] mt-[25px] mb-[25px]'>
-              <span className='text-slate-400'>I'm Jainy Xavier</span> <br></br>
+              <span className='text-slate-400'>Eu sou Jainy Xavier,</span> <br></br>
               Frontend Developer
             </h1>
 
@@ -41,14 +56,16 @@ export default function Home() {
                 src="/img/arrow.webp"
                 width={80}
                 height={80}
+                style={{ width: '80px', height: '80px' }}
                 alt="Seta"
               />
             </div>
           </div>
 
           <Image
-            className='w-full max-w-[400px] max-[768px]:ml-auto max-[768px]:max-w-[300px]'
             src="/img/Saly-1.png"
+            className='w-full h-auto max-w-[400px] max-[768px]:ml-auto max-[768px]:max-w-[300px]'
+            style={{ width: '100%', height: '400px' }}
             width={400}
             height={400}
             alt="Desenho de menina em foguete rosa"
@@ -57,16 +74,17 @@ export default function Home() {
       </section>
 
       {/* about */}
-      <section className='w-full pb-[120px]'>
+      <section className='w-full pb-[120px]' ref={sectionAbout}>
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto'>
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>About</h2>
 
           <div className='flex justify-between items-center gap-[40px] max-[768px]:flex-col-reverse max-[768px]:gap-[80px] max-[768px]:items-start'>
             <Image
-              className='w-full max-w-[350px] max-[768px]:max-w-[280px] max-[768px]:ml-auto'
+            className='w-full h-auto max-w-[350px] max-[768px]:max-w-[280px] max-[768px]:ml-auto'
               src="/img/about.png"
               width={350}
               height={350}
+              style={{width: '100%', height: '350px'}}
               alt="Desenho de pessoas com dúvidas"
             />
 
@@ -92,6 +110,7 @@ export default function Home() {
                   src="/img/arrow.webp"
                   width={60}
                   height={60}
+                  style={{width: '60px', height: '60px'}}
                   className='object-none'
                   alt="Seta"
                 />
@@ -102,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* skills */}
-      <section className='w-full pb-[120px]'>
+      <section className='w-full pb-[120px]' ref={sectionSkills}>
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto'>
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>Skills</h2>
 
