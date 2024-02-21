@@ -48,8 +48,8 @@ export default function Home() {
 
             <div className='w-full max-w-[350px] flex justify-between gap-[40px]'>
               <ul className='w-full flex justify-between items-center gap-[10px]'>
-                <ListItemIcon link='https://www.linkedin.com/in/jainy-xavier/' Icon={FaGithub} />
-                <ListItemIcon link='https://github.com/jainyxavier' Icon={FaLinkedin} />
+                <ListItemIcon link='https://github.com/jainyxavier' Icon={FaGithub} />
+                <ListItemIcon link='https://www.linkedin.com/in/jainy-xavier/' Icon={FaLinkedin} />
                 <ListItemIcon link='https://www.instagram.com/jainy.xavier/' Icon={FaInstagramSquare} />
               </ul>
 
