@@ -8,10 +8,11 @@ import { FaGithub, FaLinkedin, FaInstagramSquare, FaPhoneAlt, FaHtml5, FaCss3Alt
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoLogoJavascript } from "react-icons/io5";
+import { IoMdSunny } from "react-icons/io";
 import { SiTailwindcss } from "react-icons/si";
 import ListItemIcon from './components/ListItemIcon';
 import InfoItem from './components/InfoItem';
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, useRef } from 'react';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 
@@ -102,7 +103,7 @@ export default function Home() {
               </div>
 
               <div className='flex gap-[40px] mt-[25px]'>
-                <a href="/cv-jainy.pdf" target="_blank" className='w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg shadow-gray-500 hover:scale-105'>
+                <a href="/cv-jainyxavier.pdf" target="_blank" className='w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg shadow-gray-500 hover:scale-105'>
                   Visualizar CV
                 </a>
 
@@ -143,6 +144,10 @@ export default function Home() {
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>Projects</h2>
         </div>
       </section> */}
+
+      {/* <div className='w-[65px] h-[65px] bg-white/10 backdrop-blur-[5px] rounded-full flex items-center justify-center cursor-pointer fixed bottom-[5%] right-[2%]'>
+        <IoMdSunny className='w-[30px] h-[30px] text-white hover:text-[#f472b6]' />
+      </div> */}
 
       <Footer />
     </main>
