@@ -102,7 +102,7 @@ export default function Home() {
               </div>
 
               <div className='flex gap-[40px] mt-[25px]'>
-                <a href="/cv-jainyxavier.pdf" target="_blank" className='w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg shadow-gray-500 hover:scale-105'>
+                <a href="/cv-jainy.pdf" target="_blank" className='w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg shadow-gray-500 hover:scale-105'>
                   Visualizar CV
                 </a>
 
