@@ -8,43 +8,45 @@ import { FaGithub, FaLinkedin, FaInstagramSquare, FaPhoneAlt, FaHtml5, FaCss3Alt
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoLogoJavascript } from "react-icons/io5";
-import { IoMdSunny } from "react-icons/io";
+import { IoMdSunny, IoMdMoon } from "react-icons/io";
 import { SiTailwindcss } from "react-icons/si";
 import ListItemIcon from './components/ListItemIcon';
 import InfoItem from './components/InfoItem';
-import { RefObject, useRef } from 'react';
+import { RefObject, useRef, useState } from 'react';
+import DarkMode from './components/DarkMode'
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' })
 
 export default function Home() {
+
+  const [selectedTheme, setSelectedTheme] = useState('dark')
 
   const sectionHome: RefObject<HTMLElement> = useRef(null);
   const sectionAbout: RefObject<HTMLElement> = useRef(null);
   const sectionSkills: RefObject<HTMLElement> = useRef(null);
 
   function handleScrollTo(referenceElement: RefObject<HTMLElement>) {
-    console.log(referenceElement)
     referenceElement.current?.scrollIntoView({
       behavior: 'smooth',
     })
   }
 
   return (
-    <main className={roboto.className}>
+    <main className={`${roboto.className} ${selectedTheme == 'dark' ? 'bg-slate-900' : 'bg-[#C1A6BA]'}`}>
       <Header handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} />
 
       {/* home */}
       <section className='w-full pt-[120px] pb-[120px]' ref={sectionHome}>
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto flex justify-between items-center gap-[20px] max-[768px]:flex-col max-[768px]:items-start'>
           <div className='w-full max-w-[600px]'>
-            <p className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[18px]'>Olá !</p>
+            <p className='w-fit bg-gradient-to-r from-[#d587e1] via-[#bf27a5] to-[#df78c3] text-transparent bg-clip-text text-[18px]'>Olá !</p>
 
-            <h1 className='w-fit bg-gradient-to-r from-[#bd3899] via-teal-500 to-fuchsia-500 text-transparent bg-clip-text text-[40px] mt-[25px] mb-[25px]'>
-              <span className='text-slate-400'>Eu sou Jainy Xavier,</span> <br></br>
+            <h1 className='w-fit bg-gradient-to-r from-[#d587e1] via-[#bf27a5] to-[#df78c3] text-transparent bg-clip-text text-[40px] mt-[25px] mb-[25px]'>
+              <span className='text-white'>Eu sou Jainy Xavier,</span> <br></br>
               Frontend Developer
             </h1>
 
-            <p className='text-[20px] text-slate-400 mb-[25px]'>Focada em proporcionar a melhor experiência para o usuário.</p>
+            <p className='text-[20px] text-white mb-[25px]'>Focada em proporcionar a melhor experiência para o usuário.</p>
 
             <div className='w-full max-w-[350px] flex justify-between gap-[40px]'>
               <ul className='w-full flex justify-between items-center gap-[10px]'>
@@ -90,11 +92,11 @@ export default function Home() {
             />
 
             <div className='w-full max-w-[550px] max-[768px]:max-w-none'>
-              <p className='text-[18px] text-[#99A2A5] font-medium'>
+              <p className='text-[18px] text-white font-medium'>
                 Durante os últimos quatro anos, tenho explorado profundamente o vasto universo da tecnologia, concentrando-me no desenvolvimento frontend desde 2020. Em setembro de 2022, tive a oportunidade de aplicar meu conhecimento ao ingressar no mercado de trabalho, colaborando em projetos de outsourcing com uma equipe incrível. Neste momento, estou em busca de novas oportunidades para continuar minha evolução nessa área que me apaixona, ansiosa por adquirir e compartilhar ainda mais conhecimento.
               </p>
 
-              <div className='w-[80%] max-w-[400px] h-[2px] bg-[#99A2A5] my-[25px]'></div>
+              <div className='w-[80%] max-w-[400px] h-[2px] bg-white my-[25px]'></div>
 
               <div className='flex flex-col gap-[10px]'>
                 <InfoItem Icon={FaLocationDot} link="https://petrolandiaparallax.netlify.app/" text='Petrolândia-PE' />
@@ -103,7 +105,7 @@ export default function Home() {
               </div>
 
               <div className='flex gap-[40px] mt-[25px]'>
-                <a href="/cv-jainyxavier.pdf" target="_blank" className='w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg shadow-gray-500 hover:scale-105'>
+                <a href="/cv-jainyxavier.pdf" target="_blank" className={`${'w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg hover:scale-105'} ${selectedTheme == 'dark' ? 'shadow-gray-500' : 'shadow-[#8c61a3]'}`}>
                   Visualizar CV
                 </a>
 
@@ -145,10 +147,8 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* <div className='w-[65px] h-[65px] bg-white/10 backdrop-blur-[5px] rounded-full flex items-center justify-center cursor-pointer fixed bottom-[5%] right-[2%]'>
-        <IoMdSunny className='w-[30px] h-[30px] text-white hover:text-[#f472b6]' />
-      </div> */}
-
+      <DarkMode changeTheme={(value: string) => setSelectedTheme(value)} />
+      
       <Footer />
     </main>
   )
