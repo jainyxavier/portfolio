@@ -1,8 +1,15 @@
 "use client"
 import Image from "next/image";
-import { useState } from "react";
+import { RefObject, useState } from "react";
 
-export default function Header() {
+interface HeaderProps{
+    sectionHome: RefObject<HTMLElement>,
+    sectionAbout: RefObject<HTMLElement>,
+    sectionSkills: RefObject<HTMLElement>,
+    handleScrollTo: (referenceElement: RefObject<HTMLElement>) => void
+}
+
+export default function Header({sectionHome, sectionAbout, sectionSkills, handleScrollTo}: HeaderProps) {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [classAnimation, setClassAnimation] = useState(false)
@@ -10,19 +17,18 @@ export default function Header() {
     const menuItems = [
         {
             name: "Home",
-            to: "#"
+            reference: sectionHome
         },
         {
             name: "About",
-            to: "#"
+            reference: sectionAbout
         },
         {
             name: "Skills",
-            to: "#"
+            reference: sectionSkills
         },
         // {
         //     name: "Projects",
-        //     to: "#"
         // }
     ]
 
@@ -44,7 +50,7 @@ export default function Header() {
                     <ul className="w-full flex justify-between gap-4">
                         {menuItems.map((item, index) => {
                             return (
-                                <li key={index} className="text-white text-base font-semibold px-[15px] py-[5px] cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">
+                                <li key={index} onClick={() => handleScrollTo(item.reference)} className="text-white text-base font-semibold px-[15px] py-[5px] cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">
                                     {item.name}
                                 </li>
                             )
@@ -60,19 +66,19 @@ export default function Header() {
                         <div className="w-[25px] h-1 bg-[#D529A6] rounded-lg"></div>
                     </div>
                 ) : (
-                    <div className="max-[768px]:flex transition w-[20px] flex-col gap-1 relative z-10" role="button" onClick={() => setToggleMenu(!toggleMenu)}>
+                    <div className="max-[768px]:flex transition w-[20px] flex-col gap-1 relative z-20" role="button" onClick={() => setToggleMenu(!toggleMenu)}>
                         <div className="w-[25px] h-1 bg-[#D529A6] rounded-lg absolute rotate-[45deg]"></div>
                         <div className="w-[25px] h-1 bg-[#D529A6] rounded-lg absolute rotate-[135deg]"></div>
                     </div>
                 )}
 
                 {toggleMenu && (
-                    <div className="w-full flex absolute top-0 left-0 pt-[105px]">
+                    <div className="w-full flex absolute top-0 left-0">
                         <div className="absolute h-[100vh] w-full bg-slate-900 z-10"></div>
-                        <ul className="w-full flex justify-between gap-[15px] flex-col items-center z-20">
+                        <ul className="w-full flex justify-between gap-[15px] flex-col items-center z-20 mt-[65px]">
                             {menuItems.map((item, index) => {
                                 return (
-                                    <li key={index} className="text-white text-base font-semibold py-1.5 px-4 cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">{item.name}</li>
+                                    <li key={index} onClick={() => {setToggleMenu(false), handleScrollTo(item.reference)}} className="text-white text-base font-semibold py-1.5 px-4 cursor-pointer hover:bg-white hover:text-pink-500 hover:shadow-lg hover:shadow-gray-500/80 transition-all rounded-lg">{item.name}</li>
                                 )
                             })}
                         </ul>

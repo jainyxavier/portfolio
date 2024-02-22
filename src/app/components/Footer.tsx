@@ -7,13 +7,13 @@ export default function Footer() {
             <div className="w-[calc(100%-40px)] max-w-[150px] mx-auto">
                 <ul className='w-full flex justify-between items-center gap-[10px]'>
                     <li className='hover:scale-125 transition-all flex items-center justify-center'>
-                        <a href="https://www.linkedin.com/in/jainy-xavier-0288a3215/" target='_blank'>
+                        <a href="https://github.com/jainyxavier" target='_blank'>
                             <FaGithub fontSize={'30px'} color="#f472b6" />
                         </a>
                     </li>
 
                     <li className='hover:scale-125 hover:transition-all flex items-center justify-center'>
-                        <a href="https://github.com/jainyxavier" target='_blank'>
+                        <a href="https://www.linkedin.com/in/jainy-xavier/" target='_blank'>
                             <FaLinkedin fontSize={'30px'} color="#f472b6" />
                         </a>
                     </li>
