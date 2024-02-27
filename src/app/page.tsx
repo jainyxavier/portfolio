@@ -67,7 +67,7 @@ export default function Home() {
 
           <Image
             src="/img/Saly-1.png"
-            className='w-full h-auto max-w-[400px] max-[768px]:ml-auto max-[768px]:max-w-[300px]'
+            className='w-full h-auto max-w-[400px] max-[768px]:ml-auto max-[768px]:max-w-[300px] object-contain'
             style={{ width: '100%', height: '400px' }}
             width={400}
             height={400}
@@ -83,7 +83,7 @@ export default function Home() {
 
           <div className='flex justify-between items-center gap-[40px] max-[768px]:flex-col-reverse max-[768px]:gap-[80px] max-[768px]:items-start'>
             <Image
-            className='w-full h-auto max-w-[350px] max-[768px]:max-w-[280px] max-[768px]:ml-auto'
+            className='w-full h-auto max-w-[350px] max-[768px]:max-w-[280px] max-[768px]:ml-auto object-contain'
               src="/img/about.png"
               width={350}
               height={350}
