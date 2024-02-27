@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <main className={`${roboto.className} ${selectedTheme == 'dark' ? 'bg-slate-900' : 'bg-[#C1A6BA]'}`}>
-      <Header handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} />
+      <Header selectedTheme={selectedTheme} handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} />
 
       {/* home */}
       <section className='w-full pt-[120px] pb-[120px]' ref={sectionHome}>
