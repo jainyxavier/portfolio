@@ -6,10 +6,11 @@ interface HeaderProps{
     sectionHome: RefObject<HTMLElement>,
     sectionAbout: RefObject<HTMLElement>,
     sectionSkills: RefObject<HTMLElement>,
-    handleScrollTo: (referenceElement: RefObject<HTMLElement>) => void
+    handleScrollTo: (referenceElement: RefObject<HTMLElement>) => void,
+    selectedTheme: string
 }
 
-export default function Header({sectionHome, sectionAbout, sectionSkills, handleScrollTo}: HeaderProps) {
+export default function Header({sectionHome, sectionAbout, sectionSkills, handleScrollTo, selectedTheme}: HeaderProps) {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [classAnimation, setClassAnimation] = useState(false)
@@ -74,7 +75,7 @@ export default function Header({sectionHome, sectionAbout, sectionSkills, handle
 
                 {toggleMenu && (
                     <div className="w-full flex absolute top-0 left-0">
-                        <div className="absolute h-[100vh] w-full bg-slate-900 z-10"></div>
+                        <div className={`absolute h-[100vh] w-full z-10 ${selectedTheme == 'dark' ? 'bg-slate-900' : 'bg-[#C1A6BA]'}`}></div>
                         <ul className="w-full flex justify-between gap-[15px] flex-col items-center z-20 mt-[65px]">
                             {menuItems.map((item, index) => {
                                 return (
