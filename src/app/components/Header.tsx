@@ -6,11 +6,12 @@ interface HeaderProps{
     sectionHome: RefObject<HTMLElement>,
     sectionAbout: RefObject<HTMLElement>,
     sectionSkills: RefObject<HTMLElement>,
+    sectionProjects: RefObject<HTMLElement>,
     handleScrollTo: (referenceElement: RefObject<HTMLElement>) => void,
     selectedTheme: string
 }
 
-export default function Header({sectionHome, sectionAbout, sectionSkills, handleScrollTo, selectedTheme}: HeaderProps) {
+export default function Header({sectionHome, sectionAbout, sectionSkills, sectionProjects, handleScrollTo, selectedTheme}: HeaderProps) {
 
     const [toggleMenu, setToggleMenu] = useState(false)
     const [classAnimation, setClassAnimation] = useState(false)
@@ -28,9 +29,10 @@ export default function Header({sectionHome, sectionAbout, sectionSkills, handle
             name: "Skills",
             reference: sectionSkills
         },
-        // {
-        //     name: "Projects",
-        // }
+        {
+            name: "Projects",
+            reference: sectionProjects
+        }
     ]
 
     return (

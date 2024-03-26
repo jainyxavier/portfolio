@@ -8,7 +8,6 @@ import { FaGithub, FaLinkedin, FaInstagramSquare, FaPhoneAlt, FaHtml5, FaCss3Alt
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoLogoJavascript } from "react-icons/io5";
-import { IoMdSunny, IoMdMoon } from "react-icons/io";
 import { SiTailwindcss } from "react-icons/si";
 import ListItemIcon from './components/ListItemIcon';
 import InfoItem from './components/InfoItem';
@@ -24,6 +23,7 @@ export default function Home() {
   const sectionHome: RefObject<HTMLElement> = useRef(null);
   const sectionAbout: RefObject<HTMLElement> = useRef(null);
   const sectionSkills: RefObject<HTMLElement> = useRef(null);
+  const sectionProjects: RefObject<HTMLElement> = useRef(null);
 
   function handleScrollTo(referenceElement: RefObject<HTMLElement>) {
     referenceElement.current?.scrollIntoView({
@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <main className={`${roboto.className} ${selectedTheme == 'dark' ? 'bg-slate-900' : 'bg-[#C1A6BA]'}`}>
-      <Header selectedTheme={selectedTheme} handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} />
+      <Header selectedTheme={selectedTheme} handleScrollTo={handleScrollTo} sectionHome={sectionHome} sectionAbout={sectionAbout} sectionSkills={sectionSkills} sectionProjects={sectionProjects} />
 
       {/* home */}
       <section className='w-full pt-[120px] pb-[120px]' ref={sectionHome}>
@@ -141,11 +141,11 @@ export default function Home() {
       </section>
 
       {/* projetos */}
-      {/* <section className='w-full pb-[120px]'>
+      <section className='w-full pb-[120px]' ref={sectionProjects}>
         <div className='w-[calc(100%-40px)] max-w-[1200px] mx-auto'>
           <h2 className='text-[30px] text-center text-white font-semibold mb-[60px]'>Projects</h2>
         </div>
-      </section> */}
+      </section>
 
       <DarkMode changeTheme={(value: string) => setSelectedTheme(value)} />
       
