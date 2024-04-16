@@ -93,7 +93,7 @@ export default function Home() {
 
             <div className='w-full max-w-[550px] max-[768px]:max-w-none'>
               <p className='text-[18px] text-white font-medium'>
-                Durante os últimos quatro anos, tenho explorado profundamente o vasto universo da tecnologia, concentrando-me no desenvolvimento frontend desde 2020. Em setembro de 2022, tive a oportunidade de aplicar meu conhecimento ao ingressar no mercado de trabalho, colaborando em projetos de outsourcing com uma equipe incrível. Neste momento, estou em busca de novas oportunidades para continuar minha evolução nessa área que me apaixona, ansiosa por adquirir e compartilhar ainda mais conhecimento.
+                Tenho explorado o mundo da tecnologia e me encantado cada vez mais pelo front-end. Escolhi dedicar-me nesta área diariamente para contribuir no mercado da melhor maneira possível. Atualmente, estou em busca de oportunidades que me permitam não só colocar em prática todo o aprendizado adquirido, mas também evoluir continuamente e contribuir ativamente para o crescimento mútuo.
               </p>
 
               <div className='w-[80%] max-w-[400px] h-[2px] bg-white my-[25px]'></div>
@@ -105,7 +105,7 @@ export default function Home() {
               </div>
 
               <div className='flex gap-[40px] mt-[25px]'>
-                <a href="/cv-jainyxavier.pdf" target="_blank" className={`${'w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg hover:scale-105'} ${selectedTheme == 'dark' ? 'shadow-gray-500' : 'shadow-[#8c61a3]'}`}>
+                <a href="/cv-jainy.pdf" target="_blank" className={`${'w-[200px] bg-white text-[#D529A6] font-semibold rounded-lg flex items-center justify-center shadow-lg hover:scale-105'} ${selectedTheme == 'dark' ? 'shadow-gray-500' : 'shadow-[#8c61a3]'}`}>
                   Visualizar CV
                 </a>
 
