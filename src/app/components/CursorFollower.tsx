@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-export default function CursorFollower(){
+interface CursorFollowerProps{
+    selectedTheme: string;
+}
+
+export default function CursorFollower({ selectedTheme } : CursorFollowerProps){
 
     const [position, setPosition] = useState<{x: number, y: number} | null>(null)
 
@@ -28,7 +32,9 @@ export default function CursorFollower(){
                             top: `${position.y}px`,
                             left: `${position.x}px`,
                             transform: 'translate(-50%, -50%)',
-                            background: 'radial-gradient(500px, rgba(36, 77, 187, 0.15), transparent 70%)',
+                            background: selectedTheme == 'dark' ? 
+                            'radial-gradient(500px, rgba(36, 77, 187, 0.15), transparent 70%)' :
+                            'radial-gradient(500px, rgba(255, 255, 255, 0.15), transparent 70%)',
                             opacity: 1,
                         }}
                     />
