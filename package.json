@@ -19,6 +19,9 @@
     "tailwindcss-animated": "^1.1.2",
     "typescript": "5.3.3"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
